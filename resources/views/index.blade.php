@@ -80,13 +80,15 @@
                             <div class="text-gray-900">3 Comments</div>
                         </div>
 
-                        <div class="flex items-center space-x-2">
-                            <div
-                                class="bg-gray-200 text-xxs font-bold uppercase leading-none rounded-full text-center w-28 h-7 py-2 px-4">
+                        <div
+                            x-data="{ isOpen: false }"
+                            class="flex items-center space-x-2">
+                            <div class="bg-gray-200 text-xxs font-bold uppercase leading-none rounded-full text-center w-28 h-7 py-2 px-4">
                                 Open
                             </div>
 
                             <button
+                                x-on:click="isOpen = !isOpen"
                                 class="relative bg-gray-100 hover:bg-gray-200 rounded-full h-7 border transition duration-150 ease-in py-2 px-3">
                                 <svg fill="currentColor" width="24" height="6">
                                     <path
@@ -95,16 +97,21 @@
                                 </svg>
 
                                 <ul
-                                    class="absolute w-44 text-left font-semibold bg-white rounded-xl py-3 ml-8 shadow-dialog">
+                                    x-cloak
+                                    x-show="isOpen"
+                                    x-transition.origin.top.left
+                                    x-on:click.away="isOpen = false"
+                                    x-on:keydown.escape.window="isOpen = false"
+                                    class="absolute w-44 text-left font-semibold bg-white rounded-xl py-3 ml-8 shadow-dialog"
+                                >
+
                                     <li>
-                                        <a href="#"
-                                            class="hover:bg-gray-100 px-5 py-3 block transition duration-150 ease-in">
+                                        <a href="#" class="hover:bg-gray-100 px-5 py-3 block transition duration-150 ease-in">
                                             Mark as Spam
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#"
-                                            class="hover:bg-gray-100 px-5 py-3 block transition duration-150 ease-in">
+                                        <a href="#" class="hover:bg-gray-100 px-5 py-3 block transition duration-150 ease-in">
                                             Delete Post
                                         </a>
                                     </li>
