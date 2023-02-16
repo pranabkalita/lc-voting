@@ -120,6 +120,6 @@
         </div>
     </main>
 
-    @@livewireScripts
+    @livewireScripts
 </body>
 </html>
