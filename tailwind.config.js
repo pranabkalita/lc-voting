@@ -53,4 +53,11 @@ module.exports = {
         require("@tailwindcss/forms"),
         require("@tailwindcss/line-clamp"),
     ],
+
+    safelist: [
+        {
+            pattern:
+                /(bg|text|border)-(black|white|gray|gray-background|blue|blue-hover|yellow|red|green|purple)/,
+        },
+    ],
 };
