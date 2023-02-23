@@ -59,6 +59,13 @@ class User extends Authenticatable
             . '.png';
     }
 
+    public function isAdmin()
+    {
+        return in_array($this->email, [
+            'pranab@mail.com',
+        ]);
+    }
+
     // Relations
     public function ideas()
     {
