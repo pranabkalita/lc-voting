@@ -14,7 +14,8 @@ class IdeaShow extends Component
     public $hasVoted;
 
     protected $listeners = [
-        'statusWasUpdatedEvent'
+        'statusWasUpdatedEvent',
+        'ideaWasUpdated'
     ];
 
     // Hooks
@@ -26,6 +27,11 @@ class IdeaShow extends Component
     }
 
     // Methods
+    public function ideaWasUpdated()
+    {
+        $this->idea->refresh();
+    }
+
     public function statusWasUpdatedEvent()
     {
         $this->idea->refresh();
